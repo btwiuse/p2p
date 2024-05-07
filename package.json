@@ -1,0 +1,13 @@
+{
+  "name": "p2p",
+  "version": "1.0.0",
+  "description": "p2p toys",
+  "main": "index.js",
+  "repository": "https://github.com/btwiuse/p2p",
+  "author": "navigaid <navigaid@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@libp2p/tcp": "^9.0.24",
+    "libp2p": "^1.5.1"
+  }
+}

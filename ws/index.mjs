@@ -1,6 +1,5 @@
 import { createLibp2p } from "libp2p";
 import { echo } from "@libp2p/echo";
-import { tcp } from "@libp2p/tcp";
 import { ping } from "@libp2p/ping";
 import { identify, identifyPush } from "@libp2p/identify";
 import { yamux } from "@chainsafe/libp2p-yamux";
@@ -16,7 +15,6 @@ const node = await createLibp2p({
   },
   connectionEncryption: [noise()],
   transports: [
-    tcp(),
     webSockets(),
   ],
   services: {

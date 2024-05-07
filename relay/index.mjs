@@ -1,6 +1,5 @@
 import { createLibp2p } from "libp2p";
 import { circuitRelayServer } from "@libp2p/circuit-relay-v2";
-import { tcp } from "@libp2p/tcp";
 import { identify, identifyPush } from "@libp2p/identify";
 import { yamux } from "@chainsafe/libp2p-yamux";
 import { webSockets } from "@libp2p/websockets";
@@ -15,7 +14,6 @@ const node = await createLibp2p({
   },
   connectionEncryption: [noise()],
   transports: [
-    tcp(),
     webSockets(),
   ],
   services: {

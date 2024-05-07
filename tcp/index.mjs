@@ -7,3 +7,11 @@ const node = await createLibp2p({
 	},
 	transports: [tcp()],
 })
+
+await node.start()
+console.log('libp2p has started')
+
+console.log('listening on addresses:')
+node.getMultiaddrs().forEach((addr) => {
+  console.log(addr.toString())
+})

@@ -10,6 +10,7 @@
     "@chainsafe/libp2p-identify": "^1.0.0",
     "@chainsafe/libp2p-noise": "^15.0.0",
     "@chainsafe/libp2p-yamux": "^6.0.2",
+    "@libp2p/circuit-relay-v2": "^1.0.22",
     "@libp2p/echo": "^1.0.5",
     "@libp2p/identify": "^2.0.0",
     "@libp2p/ping": "^1.0.17",

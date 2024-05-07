@@ -1,7 +1,6 @@
 import { createLibp2p } from "libp2p";
-import { echo } from "@libp2p/echo";
+import { circuitRelayServer } from "@libp2p/circuit-relay-v2";
 import { tcp } from "@libp2p/tcp";
-import { ping } from "@libp2p/ping";
 import { identify, identifyPush } from "@libp2p/identify";
 import { yamux } from "@chainsafe/libp2p-yamux";
 import { webSockets } from "@libp2p/websockets";
@@ -20,10 +19,7 @@ const node = await createLibp2p({
     webSockets(),
   ],
   services: {
-    echo: echo(),
-    ping: ping({
-      protocolPrefix: "ipfs", // default
-    }),
+    relay: circuitRelayServer(),
     identify: identify(),
     identifyPush: identifyPush(),
   },

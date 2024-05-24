@@ -36,25 +36,28 @@ class Proxy {
       console.log("client disconnected");
     });
 
+    // type of libp2p.Stream is defined here:
     // https://libp2p.github.io/js-libp2p/interfaces/_libp2p_interface.Stream.html
+    // if dest doesn't contain /p2p/<peer-id>, a new connection will be established each time
+    // dialProtocol is called. Otherwise, the connection will be reused.
     let stream = await this.host.dialProtocol(this.dest, "/proxy-auto/0.0.1");
     pipe(
-	    stream.source,
-	    // convert Uint8ArrayList to Uint8Array
-	    async function* (source) {
-		    for await (const uint8arrayList of source) {
-			    for (const uint8array of uint8arrayList) {
-				    // console.log(new Date, uint8array);
-				    yield uint8array;
-			    }
-		    }
-	    },
-	    toIterable.sink(socket),
+      stream.source,
+      // convert Uint8ArrayList to Uint8Array
+      async function* (source) {
+        for await (const uint8arrayList of source) {
+          for (const uint8array of uint8arrayList) {
+            // console.log(new Date, uint8array);
+            yield uint8array;
+          }
+        }
+      },
+      toIterable.sink(socket),
     );
     pipe(
-	    toIterable.source(socket),
-	    // transform Buffer to Uint8Array
-	    /*
+      toIterable.source(socket),
+      // transform Buffer to Uint8Array
+      /*
 	    async function* (source) {
 		    for await (const chunk of source) {
 			    let uint8array = new Uint8Array(chunk);
@@ -63,7 +66,7 @@ class Proxy {
 		    }
 	    },
 	    */
-	    stream.sink,
+      stream.sink,
     );
     // socket.pipe(stream.sink);
   }

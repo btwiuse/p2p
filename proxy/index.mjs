@@ -36,6 +36,7 @@ class Proxy {
       console.log("client disconnected");
     });
 
+    // https://libp2p.github.io/js-libp2p/interfaces/_libp2p_interface.Stream.html
     let stream = await this.host.dialProtocol(this.dest, "/proxy-auto/0.0.1");
     pipe(
 	    stream.source,

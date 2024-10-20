@@ -8,16 +8,17 @@
   "license": "MIT",
   "dependencies": {
     "@chainsafe/libp2p-identify": "^1.0.0",
-    "@chainsafe/libp2p-noise": "^15.0.0",
-    "@chainsafe/libp2p-yamux": "^6.0.2",
-    "@libp2p/circuit-relay-v2": "^1.0.24",
-    "@libp2p/echo": "^1.0.7",
-    "@libp2p/identify": "^2.0.2",
-    "@libp2p/ping": "^1.0.19",
-    "@libp2p/tcp": "^9.0.26",
-    "@libp2p/websockets": "^8.0.24",
-    "@multiformats/multiaddr": "^12.2.3",
-    "libp2p": "^1.6.0",
+    "@chainsafe/libp2p-noise": "^16.0.0",
+    "@chainsafe/libp2p-yamux": "^7.0.1",
+    "@libp2p/circuit-relay-v2": "^2.1.5",
+    "@libp2p/echo": "^2.0.8",
+    "@libp2p/identify": "^3.0.8",
+    "@libp2p/peer-record": "^8.0.8",
+    "@libp2p/ping": "^2.0.8",
+    "@libp2p/tcp": "^10.0.9",
+    "@libp2p/websockets": "^9.0.8",
+    "@multiformats/multiaddr": "^12.3.1",
+    "libp2p": "^2.1.9",
     "stream-to-it": "^1.0.1"
   }
 }

@@ -78,7 +78,7 @@ const node = await createLibp2p({
       "/ip4/127.0.0.1/tcp/31337/ws",
     ],
   },
-  connectionEncryption: [noise()],
+  connectionEncrypters: [noise()],
   transports: [
     webSockets(),
   ],

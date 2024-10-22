@@ -36,6 +36,9 @@ node.getMultiaddrs().forEach((addr) => {
   console.log(addr.toString());
 });
 
+const protocols = await node.getProtocols();
+console.log("registered protocols:", protocols);
+
 // get argument 1
 if (process.argv.length < 3) {
   console.error("Usage: node index.mjs <dest>");

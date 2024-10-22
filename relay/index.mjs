@@ -31,3 +31,6 @@ console.log("listening on addresses:");
 node.getMultiaddrs().forEach((addr) => {
   console.log(addr.toString());
 });
+
+const protocols = await node.getProtocols();
+console.log("registered protocols:", protocols);

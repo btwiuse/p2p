@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>p2ping</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="manifest.json" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://assets-global.website-files.com/60f57c496975b84c29335fb7/6108e5c4858ed189a967a6c4_32.png"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <script type="importmap">
+      {
+        "imports": {
+          "eruda": "https://esm.sh/eruda",
+          "yaml": "https://esm.sh/yaml",
+          "browser-fs-access": "https://esm.sh/browser-fs-access/dist/index.modern.js",
+          "preact": "https://esm.sh/preact@10.19.2",
+          "preact/": "https://esm.sh/preact@10.19.2/",
+          "htm/preact": "https://esm.sh/htm@3.1.1/preact?external=preact",
+          "@gear-js/api": "https://esm.sh/@gear-js/api",
+          "@polkadot/types": "https://esm.sh/@polkadot/types",
+          "@polkadot/util": "https://esm.sh/@polkadot/util",
+          "@polkadot/util-crypto": "https://esm.sh/@polkadot/util-crypto",
+          "@polkadot/extension-dapp": "https://esm.sh/@polkadot/extension-dapp",
+          "@polkadot/ui-keyring": "https://esm.sh/@polkadot/ui-keyring",
+          "@polkadot/api": "https://esm.sh/@polkadot/api",
+          "@chainsafe/libp2p-noise": "https://esm.sh/@chainsafe/libp2p-noise@16.0.0",
+          "@chainsafe/libp2p-yamux": "https://esm.sh/@chainsafe/libp2p-yamux@7.0.1",
+          "@libp2p/circuit-relay-v2": "https://esm.sh/@libp2p/circuit-relay-v2@2.1.5",
+          "@libp2p/echo": "https://esm.sh/@libp2p/echo@2.0.8",
+          "@libp2p/identify": "https://esm.sh/@libp2p/identify@3.0.8",
+          "@libp2p/peer-record": "https://esm.sh/@libp2p/peer-record@8.0.8",
+          "@libp2p/ping": "https://esm.sh/@libp2p/ping@2.0.8",
+          "@libp2p/tcp": "https://esm.sh/@libp2p/tcp@10.0.9",
+          "@libp2p/websockets": "https://esm.sh/@libp2p/websockets@9.0.8",
+          "@multiformats/multiaddr": "https://esm.sh/@multiformats/multiaddr@12.3.1",
+          "libp2p": "https://esm.sh/libp2p@2.1.9",
+          "stream-to-it": "https://esm.sh/stream-to-it@1.0.1"
+        }
+      }
+    </script>
+    <script type="module">
+      import eruda from "eruda";
+      eruda.init();
+      eruda.show();
+      eruda.show("console");
+    </script>
+    <script type="module" src="./script.mjs" async></script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <main id="app">
+      <h1>P2ping</h1>
+      <div class="container">
+        <h2>Enter Multiaddr</h2>
+        <form onsubmit="handleSubmit(event)">
+          <input
+            type="text"
+            id="multiaddrInput"
+            placeholder="Enter multiaddr (e.g. /ip4/223.104.119.73/tcp/404/wss)"
+            required
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        const multiaddr = document.getElementById("multiaddrInput").value;
+        window.location.hash = multiaddr;
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>

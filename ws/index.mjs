@@ -6,8 +6,10 @@ import { yamux } from "@chainsafe/libp2p-yamux";
 import { webSockets } from "@libp2p/websockets";
 import { multiaddr } from "@multiformats/multiaddr";
 import { noise } from "@chainsafe/libp2p-noise";
+import { persistentIdentity } from "../p2pid/index.mjs";
 
 const node = await createLibp2p({
+  privateKey: await persistentIdentity(),
   addresses: {
     listen: [
       "/ip4/127.0.0.1/tcp/31337/ws",
